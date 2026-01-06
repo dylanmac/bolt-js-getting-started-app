@@ -38,6 +38,12 @@ app.message('hello', async ({ message, say }) => {
   });
 });
 
+app.message('goodbye', async ({ say }) => {
+  const responses = ['Adios', 'Au revoir', 'Farewell'];
+  const parting = responses[Math.floor(Math.random() * responses.length)];
+  await say(`${parting}!`);
+});
+
 app.action('button_click', async ({ body, ack, say }) => {
   // Acknowledge the action
   await ack();
